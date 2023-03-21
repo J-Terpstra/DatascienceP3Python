@@ -4,7 +4,7 @@ import json
 url = "http://localhost:8000"
 
 # Define the command
-command = "print('Hello, world!')"
+command = "bestGenre"
 
 # Create a JSON payload with the command
 payload = {'command': command}

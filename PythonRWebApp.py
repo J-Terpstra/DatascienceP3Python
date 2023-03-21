@@ -1,6 +1,7 @@
 import json
 import subprocess
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import PythonUtils
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -13,11 +14,13 @@ class RequestHandler(BaseHTTPRequestHandler):
         if not command:
             response_data = {'error': 'No command provided'}
         else:
+            RData = PythonUtils.getRData(command)
             # Run the R script and get the result
             # result = subprocess.check_output(['Rscript', '-e', command])
             # response_data = {'result': result.decode()}
             # log in console
-            response_data = {'result': "Nog niet geimplementeerd"}
+            #response_data = {'result': "Nog niet geimplementeerd"}
+            response_data = RData
             print(command)
 
         response = json.dumps(response_data).encode()
